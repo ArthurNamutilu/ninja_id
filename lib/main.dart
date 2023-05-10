@@ -42,7 +42,7 @@ class NinjaCard extends StatelessWidget {
                   letterSpacing: 2.0,
                 ),
               ),
-              const SizedBox(height: 10.0), //space between name & Chun-Li
+              const SizedBox(height: 10.0),
               Text(
                 '8',
                 style: TextStyle(
@@ -53,6 +53,23 @@ class NinjaCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Icon(
+                      Icons.email,
+                      color: Colors.grey[400],
+                  ),
+                  const SizedBox(width: 10.0),
+                  Text(
+                    'gg@Ninja.com',
+                    style: TextStyle(
+                      color: Colors.grey[400],
+                      letterSpacing: 1.0,
+                      fontSize: 18.0
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
