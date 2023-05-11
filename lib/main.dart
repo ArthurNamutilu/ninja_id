@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp( home: NinjaCard()));
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+  int ninjaLevel = 0;
     @override
     Widget build(BuildContext context) {
       return Scaffold(
         backgroundColor: Colors.grey[900],
         appBar: AppBar(
-          title: Text('Ninja ID Card'),
+          title: const Text('Ninja ID Card'),
           centerTitle: true,
           backgroundColor: Colors.grey[850],
           elevation: 0.0,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() { // rebuilds and calls the build() method of each widget in the tree, which allows the widgets to update their appearance based on the new state.
+              ninjaLevel += 1;
+            });
+          },
+          backgroundColor: Colors.grey[800],
+            child: const Icon(Icons.add)
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -55,7 +70,7 @@ class NinjaCard extends StatelessWidget {
               ),
               const SizedBox(height: 10.0),
               Text(
-                '8',
+                '$ninjaLevel',
                 style: TextStyle(
                     color: Colors.amberAccent[200],
                     letterSpacing: 2.0,
@@ -86,4 +101,4 @@ class NinjaCard extends StatelessWidget {
         ),
       );
     }
-  }
+}
